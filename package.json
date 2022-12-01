@@ -1,0 +1,21 @@
+{
+  "name": "creative_industry",
+  "version": "1.0.0",
+  "description": "Web resouces for the value of creative industries to the Victorian economy",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Henry-DJPR/creative_industry.git"
+  },
+  "author": "Henry McMillan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Henry-DJPR/creative_industry/issues"
+  },
+  "homepage": "https://github.com/Henry-DJPR/creative_industry#readme",
+  "devDependencies": {
+    "parcel": "^2.8.0"
+  }
+}

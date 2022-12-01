@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vic Creative Industry</title>
+      </head>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src = "https://code.highcharts.com/modules/data.js"></script>
+    <body>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+            Highcharts.getJSON("https://viclabour.onrender.com/highcharts_data/viz_ind_empgro_line.json", function (data) {
+                Highcharts['stockChart']("chartHolster", data)
+              })
+            })
+          </script>
+          <div id = "chartHolster"></div>
+    </body>
+</html>
