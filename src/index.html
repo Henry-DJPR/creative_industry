@@ -1,20 +1,64 @@
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Vic Creative Industry</title>
-      </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vic Creative Industry</title>
+  </head>
+  <body>
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    <script src = "https://code.highcharts.com/modules/data.js"></script>
-    <body>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-            Highcharts.getJSON("https://viclabour.onrender.com/highcharts_data/viz_ind_empgro_line.json", function (data) {
-                Highcharts['stockChart']("chartHolster", data)
-              })
-            })
-          </script>
-          <div id = "chartHolster"></div>
-    </body>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <style>
+      .chart-container {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+
+      .chart-row {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 1rem;
+      }
+
+      .chart-col-6 {
+        grid-column: span 6;
+      }
+
+      @media (max-width: 768px) {
+        .chart-col-6 {
+          grid-column: span 12;
+        }
+      }
+    </style>
+
+    <script>
+      function makeChart(containerID, jsonURL, chartType = "stockChart") {
+        Highcharts.getJSON(jsonURL, function (data) {
+          Highcharts[chartType](containerID, data);
+        });
+      }
+
+      const chartList = {
+        viz_ind_empgro_line:
+          "https://viclabour.onrender.com/highcharts_data/viz_ind_empgro_line.json",
+        viz_ind_gen_full_part_line:
+          "https://viclabour.onrender.com/highcharts_data/viz_ind_gen_full_part_line.json",
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        for (const viz in chartList) {
+          makeChart(viz, chartList[viz]);
+        }
+      });
+    </script>
+
+    <div class="chart-container">
+      <div class="chart-row">
+        <div id="viz_ind_empgro_line" class="chart-col-6"></div>
+        <div id="viz_ind_gen_full_part_line" class="chart-col-6"></div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Web resouces for the value of creative industries to the Victorian economy",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "repository": {
     "type": "git",
